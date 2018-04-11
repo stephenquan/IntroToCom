@@ -10,10 +10,10 @@
 // Run::CoInitializeEx Begin
 // 'IntroToComV1.exe' (Win32) : Loaded 'C:\Windows\System32\kernel.appcore.dll'.Cannot find or open the PDB file.
 // 'IntroToComV1.exe' (Win32) : Loaded 'C:\Windows\System32\msvcrt.dll'.Cannot find or open the PDB file.
-// Run::CoInitializeEx End hr: 0x00000000 (The operation completed successfully.)
+// Run::CoInitializeEx End 0x00000000 (The operation completed successfully.)
 // Run::CoUninitialize Begin
 // Run::CoUninitialize End
-// main::Run End hr: 0x00000000 (The operation completed successfully.)
+// main::Run End 0x00000000 (The operation completed successfully.)
 
 #include "stdafx.h"
 
@@ -56,7 +56,7 @@ HRESULT Run()
 	dbg << "Run::CoInitializeEx Begin\n";
 	hr = CoInitializeEx(NULL, COINIT_MULTITHREADED);
 	Sleep(200);
-	dbg << "Run::CoInitializeEx End hr: " << hr << "\n"; // S_OK
+	dbg << "Run::CoInitializeEx End " << hr << "\n"; // S_OK
 	if (FAILED(hr)) return hr;
 
 	// ... Do COM stuff here ...
@@ -77,7 +77,7 @@ int main()
 	
 	dbg << "main::Run Begin\n";
 	hr = Run();
-	dbg << "main::Run End hr: " << hr << "\n";
+	dbg << "main::Run End " << hr << "\n";
 
 	return 0;
 }

@@ -193,7 +193,7 @@ HRESULT XMLTest2()
 
 	dbg << "XMLTest2::CoCreateInstance Begin\n";
 	CComPtr<IXMLDOMDocument> pIXMLDOMDocument;
-	hr = pIXMLDOMDocument.CoCreateInstance(OLESTR("Microsoft.XMLDOM"), NULL, CLSCTX_ALL);
+	hr = pIXMLDOMDocument.CoCreateInstance(OLESTR("Microsoft.XMLDxOM"), NULL, CLSCTX_INPROC_SERVER);
 	dbg << "XMLTest2::CoCreateInstance End " << hr << "\n";
 	if (FAILED(hr)) return hr;
 
@@ -267,9 +267,9 @@ HRESULT Run()
 	if (FAILED(hr)) return hr;
 
 	dbg << "Run::XMLTest Begin\n";
-	//hr = XMLTest();
+	hr = XMLTest();
 	//hr = XMLTest2();
-	hr = XMLTest3();
+	//hr = XMLTest3();
 	dbg << "Run::XMLTest End " << hr << "\n";
 
 	dbg << "Run::CoFreeUnusedLibrariesEx Begin\n";
