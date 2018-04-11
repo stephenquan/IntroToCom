@@ -7,11 +7,21 @@
   - Nested CoInitializeEx / CoUninitializeEx
   
 - IntroToComV3
+  - Calling XMLTest without Run - demonstrate CO_E_NOTINITIALIZED
   - XMLTest - Create Microsoft.XMLDOM object using smartpointers (two step)
+    - Hack Class Name and trigger CO_E_CLASSSTRING
+    - Failure to set NULL will mean msxml3.dll is unloaded outside the loop
+    - Don't Empty CComBSTR will cause msxml3.dll to unload outside the loop
+    - Use alternate CComBSTR and msxml3.dll won't unload until process finish
+    - Malform input still yields successful HRESULT, check VARIANT_BOOL
+    - CoFreeUnusedLibrariesEx similar to gc() may do something, may not be immediate
   - XMLTest2 - Create Microsoft.XMLDOM object using smartpointers (single step)
     - Confidence means we can shorten the code (no need to troubleshoot)
   - XMLTest3 - Create Microsoft.XMLDOM object without smartpointers
-    - 
+    - Too easy to make a mistake
+    - Balance Release with QueryInterface
+    - Balance Release with CoCreateInstance
+    - Balance Release with AddRef
     
 Common SUCCESS codes:
 
