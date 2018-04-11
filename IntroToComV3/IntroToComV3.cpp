@@ -1,4 +1,4 @@
-// Calling CoInitializeEx repeated must be balanced with CoUninitialize.
+// Different ways of creating Microsoft.XMLDOM COM object.
 //
 // Output (XMLTest):
 //
@@ -20,37 +20,6 @@
 // XMLTest::CoFreeUnusedLibrariesEx Begin
 // 'IntroToComV3.exe' (Win32) : Unloaded 'C:\Windows\System32\msxml3.dll'
 // XMLTest::CoFreeUnusedLibrariesEx End
-// Run::XMLTest End 0x00000000 (The operation completed successfully.)
-// Run::CoFreeUnusedLibrariesEx Begin
-// Run::CoFreeUnusedLibrariesEx End
-// Run::CoUninitialize Begin
-// Run::CoUninitialize End
-// main::Run End 0x00000000 (The operation completed successfully.)
-
-// Output:
-//
-// main::Run Begin
-// Run::CoInitializeEx Begin
-// 'IntroToComV3.exe' (Win32) : Loaded 'C:\Windows\System32\kernel.appcore.dll'.Cannot find or open the PDB file.
-// 'IntroToComV3.exe' (Win32) : Loaded 'C:\Windows\System32\msvcrt.dll'.Cannot find or open the PDB file.
-// Run::CoInitializeEx End 0x00000000 (The operation completed successfully.)
-// Run::XMLTest Begin
-// XMLTest3::CLSIDFromProgID Begin
-// 'IntroToComV3.exe' (Win32) : Loaded 'C:\Windows\System32\clbcatq.dll'.Cannot find or open the PDB file.
-// XMLTest3::CLSIDFromProgID End 0x00000000 (The operation completed successfully.)
-// XMLTest3::CoCreateInstance Begin
-// 'IntroToComV3.exe' (Win32) : Loaded 'C:\Windows\System32\msxml3.dll'.Cannot find or open the PDB file.
-// 'IntroToComV3.exe' (Win32) : Loaded 'C:\Windows\System32\bcrypt.dll'.Cannot find or open the PDB file.
-// XMLTest3::CoCreateInstance End 0x00000000 (The operation completed successfully.)
-// XMLTest3::QueryInterface Begin 0x00000000 (The operation completed successfully.)
-// XMLTest3::QueryInterface End 0x00000000 (The operation completed successfully.)
-// XMLTest3::Release IXMLDOMDocument Begin
-// XMLTest3::Release IXMLDOMDocument End 0
-// XMLTest3::Release IUnknown Begin
-// XMLTest3::Release IUnknown End 0
-// XMLTest3::CoFreeUnusedLibrariesEx Begin
-// 'IntroToComV3.exe' (Win32) : Unloaded 'C:\Windows\System32\msxml3.dll'
-// XMLTest3::CoFreeUnusedLibrariesEx End
 // Run::XMLTest End 0x00000000 (The operation completed successfully.)
 // Run::CoFreeUnusedLibrariesEx Begin
 // Run::CoFreeUnusedLibrariesEx End
