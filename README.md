@@ -54,3 +54,4 @@ See also
 
  - https://msdn.microsoft.com/en-us/library/windows/desktop/dd542643(v=vs.85).aspx
  - https://msdn.microsoft.com/en-us/library/windows/desktop/ms681381(v=vs.85).aspx
+ - https://stackoverflow.com/questions/514598/what-is-the-difference-between-com-and-ole
