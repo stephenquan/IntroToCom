@@ -198,6 +198,7 @@ HRESULT XMLTest3()
 	dbg << "XMLTest3::QueryInterface Begin " << hr << "\n";
 	IXMLDOMDocument* pIXMLDOMDocument = NULL;
 	hr = pIUnknown->QueryInterface(IID_IXMLDOMDocument, (void**)& pIXMLDOMDocument);
+	//hr = pIUnknown->QueryInterface(IID_IFeatureClass, (void**)& pIXMLDOMDocument);
 	dbg << "XMLTest3::QueryInterface End " << hr << "\n";
 	if (FAILED(hr))
 	{
