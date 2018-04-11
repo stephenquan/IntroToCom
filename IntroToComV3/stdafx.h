@@ -15,10 +15,10 @@
 
 #include <atlbase.h>
 #include <atlstr.h>
-#include <atlwin.h>
+#include <comdef.h>
 
+//#include <atlwin.h>
 //#import "C:\Windows\SysWOW64\msxml3.dll" raw_interfaces_only, raw_native_types, named_guids
-//using namespace MSXML2;
 
 
 // TODO: reference additional headers your program requires here

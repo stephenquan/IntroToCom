@@ -6,8 +6,14 @@
 //
 // Output:
 //
-// CoInitializeEx -> 00000000
-// Run -> 00000001
+// main::Run Begin
+// Run::CoInitializeEx Begin
+// 'IntroToComV1.exe' (Win32) : Loaded 'C:\Windows\System32\kernel.appcore.dll'.Cannot find or open the PDB file.
+// 'IntroToComV1.exe' (Win32) : Loaded 'C:\Windows\System32\msvcrt.dll'.Cannot find or open the PDB file.
+// Run::CoInitializeEx End hr: 0x00000000 (The operation completed successfully.)
+// Run::CoUninitialize Begin
+// Run::CoUninitialize End
+// main::Run End hr: 0x00000000 (The operation completed successfully.)
 
 #include "stdafx.h"
 
@@ -25,8 +31,18 @@ public:
 		va_end(args);
 		OutputDebugStringA(text);
 	}
+	void out(HRESULT hr)
+	{
+		CComBSTR bstrError;
+		_com_error err(hr);
+		out("0x%-8.8x (%S)", hr, err.ErrorMessage());
+	}
 	CDbg& operator << (const char* str) { OutputDebugStringA(str); return *this; }
-	CDbg& operator << (HRESULT hr) { out("%p", hr); return *this; }
+	CDbg& operator << (HRESULT hr) { out(hr); return *this; }
+	CDbg& operator << (int v) { out("%d", v); return *this; }
+	CDbg& operator << (VARIANT_BOOL b) { return CDbg::operator<<(b == VARIANT_TRUE ? "VARIANT_TRUE" : "VARIANT_FALSE"); }
+	CDbg& operator << (bool b) { return CDbg::operator<<(b ? "true" : "false"); }
+	CDbg& operator << (ULONG v) { out("%d", v); return *this; }
 };
 
 CDbg dbg;
@@ -37,16 +53,18 @@ HRESULT Run()
 {
 	HRESULT hr = S_OK;
 
+	dbg << "Run::CoInitializeEx Begin\n";
 	hr = CoInitializeEx(NULL, COINIT_MULTITHREADED);
-	dbg << "CoInitializeEx -> " << hr << "\n"; // S_OK
+	Sleep(200);
+	dbg << "Run::CoInitializeEx End hr: " << hr << "\n"; // S_OK
 	if (FAILED(hr)) return hr;
 
-	hr = CoInitializeEx(NULL, COINIT_MULTITHREADED);
-	dbg << "CoInitializeEx -> " << hr << "\n"; // S_FALSE
-	if (FAILED(hr)) return hr;
+	// ... Do COM stuff here ...
 
+	dbg << "Run::CoUninitialize Begin\n";
 	CoUninitialize();
-	CoUninitialize();
+	Sleep(200);
+	dbg << "Run::CoUninitialize End\n";
 
 	return hr;
 }
@@ -55,7 +73,11 @@ HRESULT Run()
 
 int main()
 {
-	HRESULT hr = Run();
-	dbg << "Run -> " << hr << "\n";
+	HRESULT hr = S_OK;
+	
+	dbg << "main::Run Begin\n";
+	hr = Run();
+	dbg << "main::Run End hr: " << hr << "\n";
+
 	return 0;
 }

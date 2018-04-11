@@ -1,29 +1,121 @@
 // Calling CoInitializeEx repeated must be balanced with CoUninitialize.
 //
+// Output (XMLTest):
+//
+// main::Run Begin
+// Run::CoInitializeEx Begin
+// 'IntroToComV3.exe' (Win32) : Loaded 'C:\Windows\System32\kernel.appcore.dll'.Cannot find or open the PDB file.
+// 'IntroToComV3.exe' (Win32) : Loaded 'C:\Windows\System32\msvcrt.dll'.Cannot find or open the PDB file.
+// Run::CoInitializeEx End 0x00000000 (The operation completed successfully.)
+// Run::XMLTest Begin
+// XMLTest::CoCreateInstance Begin
+// 'IntroToComV3.exe' (Win32) : Loaded 'C:\Windows\System32\clbcatq.dll'.Cannot find or open the PDB file.
+// 'IntroToComV3.exe' (Win32) : Loaded 'C:\Windows\System32\msxml3.dll'.Cannot find or open the PDB file.
+// 'IntroToComV3.exe' (Win32) : Loaded 'C:\Windows\System32\bcrypt.dll'.Cannot find or open the PDB file.
+// XMLTest::CoCreateInstance End 0x00000000 (The operation completed successfully.)
+// XMLTest::QueryInterface Begin
+// XMLTest::QueryInterface End 0x00000000 (The operation completed successfully.)
+// XMLTest::LoadXML Begin
+// XMLTest::LoadXML End 0x00000000 (The operation completed successfully.) VARIANT_TRUE
+// XMLTest::CoFreeUnusedLibrariesEx Begin
+// 'IntroToComV3.exe' (Win32) : Unloaded 'C:\Windows\System32\msxml3.dll'
+// XMLTest::CoFreeUnusedLibrariesEx End
+// Run::XMLTest End 0x00000000 (The operation completed successfully.)
+// Run::CoFreeUnusedLibrariesEx Begin
+// Run::CoFreeUnusedLibrariesEx End
+// Run::CoUninitialize Begin
+// Run::CoUninitialize End
+// main::Run End 0x00000000 (The operation completed successfully.)
+
 // Output:
 //
-// Run Begin
-// CoInitializeEx Begin
-// 'IntroToComV3.exe' (Win32) : Loaded 'C:\Windows\SysWOW64\kernel.appcore.dll'.Cannot find or open the PDB file.
-// 'IntroToComV3.exe' (Win32) : Loaded 'C:\Windows\SysWOW64\msvcrt.dll'.Cannot find or open the PDB file.
-// CoInitializeEx End 0x00000000
-// XMLTest Begin
-// CoCreateInstance Begin
-// 'IntroToComV3.exe' (Win32) : Loaded 'C:\Windows\SysWOW64\clbcatq.dll'.Cannot find or open the PDB file.
-// 'IntroToComV3.exe' (Win32) : Loaded 'C:\Windows\SysWOW64\msxml3.dll'.Cannot find or open the PDB file.
-// 'IntroToComV3.exe' (Win32) : Loaded 'C:\Windows\SysWOW64\bcrypt.dll'.Cannot find or open the PDB file.
-// CoCreateInstance End 0x00000000
-// CoFreeUnusedLibrariesEx Begin
-// 'IntroToComV3.exe' (Win32) : Unloaded 'C:\Windows\SysWOW64\msxml3.dll'
-// CoFreeUnusedLibrariesEx End
-// XMLTest End 0x00000000
-// CoUninitialize Begin
-// CoUninitialize End
-// Run End 0x00000000
+// main::Run Begin
+// Run::CoInitializeEx Begin
+// 'IntroToComV3.exe' (Win32) : Loaded 'C:\Windows\System32\kernel.appcore.dll'.Cannot find or open the PDB file.
+// 'IntroToComV3.exe' (Win32) : Loaded 'C:\Windows\System32\msvcrt.dll'.Cannot find or open the PDB file.
+// Run::CoInitializeEx End 0x00000000 (The operation completed successfully.)
+// Run::XMLTest Begin
+// XMLTest3::CLSIDFromProgID Begin
+// 'IntroToComV3.exe' (Win32) : Loaded 'C:\Windows\System32\clbcatq.dll'.Cannot find or open the PDB file.
+// XMLTest3::CLSIDFromProgID End 0x00000000 (The operation completed successfully.)
+// XMLTest3::CoCreateInstance Begin
+// 'IntroToComV3.exe' (Win32) : Loaded 'C:\Windows\System32\msxml3.dll'.Cannot find or open the PDB file.
+// 'IntroToComV3.exe' (Win32) : Loaded 'C:\Windows\System32\bcrypt.dll'.Cannot find or open the PDB file.
+// XMLTest3::CoCreateInstance End 0x00000000 (The operation completed successfully.)
+// XMLTest3::QueryInterface Begin 0x00000000 (The operation completed successfully.)
+// XMLTest3::QueryInterface End 0x00000000 (The operation completed successfully.)
+// XMLTest3::Release IXMLDOMDocument Begin
+// XMLTest3::Release IXMLDOMDocument End 0
+// XMLTest3::Release IUnknown Begin
+// XMLTest3::Release IUnknown End 0
+// XMLTest3::CoFreeUnusedLibrariesEx Begin
+// 'IntroToComV3.exe' (Win32) : Unloaded 'C:\Windows\System32\msxml3.dll'
+// XMLTest3::CoFreeUnusedLibrariesEx End
+// Run::XMLTest End 0x00000000 (The operation completed successfully.)
+// Run::CoFreeUnusedLibrariesEx Begin
+// Run::CoFreeUnusedLibrariesEx End
+// Run::CoUninitialize Begin
+// Run::CoUninitialize End
+// main::Run End 0x00000000 (The operation completed successfully.)
+//
+// Output (XMLTest2):
+//
+// main::Run Begin
+// Run::CoInitializeEx Begin
+// 'IntroToComV3.exe' (Win32) : Loaded 'C:\Windows\System32\kernel.appcore.dll'.Cannot find or open the PDB file.
+// 'IntroToComV3.exe' (Win32) : Loaded 'C:\Windows\System32\msvcrt.dll'.Cannot find or open the PDB file.
+// Run::CoInitializeEx End 0x00000000 (The operation completed successfully.)
+// Run::XMLTest Begin
+// XMLTest2::CoCreateInstance Begin
+// 'IntroToComV3.exe' (Win32) : Loaded 'C:\Windows\System32\clbcatq.dll'.Cannot find or open the PDB file.
+// 'IntroToComV3.exe' (Win32) : Loaded 'C:\Windows\System32\msxml3.dll'.Cannot find or open the PDB file.
+// 'IntroToComV3.exe' (Win32) : Loaded 'C:\Windows\System32\bcrypt.dll'.Cannot find or open the PDB file.
+// XMLTest2::CoCreateInstance End 0x00000000 (The operation completed successfully.)
+// XMLTest2::CoFreeUnusedLibrariesEx Begin
+// 'IntroToComV3.exe' (Win32) : Unloaded 'C:\Windows\System32\msxml3.dll'
+// XMLTest2::CoFreeUnusedLibrariesEx End
+// Run::XMLTest End 0x00000000 (The operation completed successfully.)
+// Run::CoFreeUnusedLibrariesEx Begin
+// Run::CoFreeUnusedLibrariesEx End
+// Run::CoUninitialize Begin
+// Run::CoUninitialize End
+// main::Run End 0x00000000 (The operation completed successfully.)
+//
+// Output (XMLTest3):
+//
+// main::Run Begin
+// Run::CoInitializeEx Begin
+// 'IntroToComV3.exe' (Win32) : Loaded 'C:\Windows\System32\kernel.appcore.dll'.Cannot find or open the PDB file.
+// 'IntroToComV3.exe' (Win32) : Loaded 'C:\Windows\System32\msvcrt.dll'.Cannot find or open the PDB file.
+// Run::CoInitializeEx End 0x00000000 (The operation completed successfully.)
+// Run::XMLTest Begin
+// XMLTest3::CLSIDFromProgID Begin
+// 'IntroToComV3.exe' (Win32) : Loaded 'C:\Windows\System32\clbcatq.dll'.Cannot find or open the PDB file.
+// XMLTest3::CLSIDFromProgID End 0x00000000 (The operation completed successfully.)
+// XMLTest3::CoCreateInstance Begin
+// 'IntroToComV3.exe' (Win32) : Loaded 'C:\Windows\System32\msxml3.dll'.Cannot find or open the PDB file.
+// 'IntroToComV3.exe' (Win32) : Loaded 'C:\Windows\System32\bcrypt.dll'.Cannot find or open the PDB file.
+// XMLTest3::CoCreateInstance End 0x00000000 (The operation completed successfully.)
+// XMLTest3::QueryInterface Begin 0x00000000 (The operation completed successfully.)
+// XMLTest3::QueryInterface End 0x00000000 (The operation completed successfully.)
+// XMLTest3::Release IXMLDOMDocument Begin
+// XMLTest3::Release IXMLDOMDocument End 0
+// XMLTest3::Release IUnknown Begin
+// XMLTest3::Release IUnknown End 0
+// XMLTest3::CoFreeUnusedLibrariesEx Begin
+// 'IntroToComV3.exe' (Win32) : Unloaded 'C:\Windows\System32\msxml3.dll'
+// XMLTest3::CoFreeUnusedLibrariesEx End
+// Run::XMLTest End 0x00000000 (The operation completed successfully.)
+// Run::CoFreeUnusedLibrariesEx Begin
+// Run::CoFreeUnusedLibrariesEx End
+// Run::CoUninitialize Begin
+// Run::CoUninitialize End
+// main::Run End 0x00000000 (The operation completed successfully.)
 
 #include "stdafx.h"
 
 //----------------------------------------------------------------------
+
 
 class CDbg
 {
@@ -37,8 +129,14 @@ public:
 		va_end(args);
 		OutputDebugStringA(text);
 	}
+	void out(HRESULT hr)
+	{
+		CComBSTR bstrError;
+		_com_error err(hr);
+		out("0x%-8.8x (%S)", hr, err.ErrorMessage());
+	}
 	CDbg& operator << (const char* str) { OutputDebugStringA(str); return *this; }
-	CDbg& operator << (HRESULT hr) { out("0x%-8.8x", hr); return *this; }
+	CDbg& operator << (HRESULT hr) { out(hr); return *this; }
 	CDbg& operator << (int v) { out("%d", v); return *this; }
 	CDbg& operator << (VARIANT_BOOL b) { return CDbg::operator<<(b == VARIANT_TRUE ? "VARIANT_TRUE" : "VARIANT_FALSE"); }
 	CDbg& operator << (bool b) { return CDbg::operator<<(b ? "true" : "false"); }
@@ -56,6 +154,7 @@ HRESULT XMLTest()
 	dbg << "XMLTest::CoCreateInstance Begin\n";
 	CComPtr<IUnknown> pIUnknown;
 	hr = pIUnknown.CoCreateInstance(OLESTR("Microsoft.XMLDOM"), NULL, CLSCTX_INPROC_SERVER);
+	Sleep(200);
 	dbg << "XMLTest::CoCreateInstance End " << hr << "\n";
 	if (FAILED(hr)) return hr;
 
@@ -79,7 +178,7 @@ HRESULT XMLTest()
 
 	dbg << "XMLTest::CoFreeUnusedLibrariesEx Begin\n";
 	CoFreeUnusedLibrariesEx(NULL, NULL);
-	Sleep(1000);
+	Sleep(200);
 	dbg << "XMLTest::CoFreeUnusedLibrariesEx End\n";
 
 	return hr;
@@ -102,7 +201,7 @@ HRESULT XMLTest2()
 
 	dbg << "XMLTest2::CoFreeUnusedLibrariesEx Begin\n";
 	CoFreeUnusedLibrariesEx(NULL, NULL);
-	Sleep(1000);
+	Sleep(200);
 	dbg << "XMLTest2::CoFreeUnusedLibrariesEx End\n";
 
 	return hr;
@@ -149,7 +248,7 @@ HRESULT XMLTest3()
 
 	dbg << "XMLTest3::CoFreeUnusedLibrariesEx Begin\n";
 	CoFreeUnusedLibrariesEx(NULL, NULL);
-	Sleep(1000);
+	Sleep(200);
 	dbg << "XMLTest3::CoFreeUnusedLibrariesEx End\n";
 
 	return hr;
@@ -163,21 +262,24 @@ HRESULT Run()
 
 	dbg << "Run::CoInitializeEx Begin\n";
 	hr = CoInitializeEx(NULL, COINIT_MULTITHREADED);
+	Sleep(200);
 	dbg << "Run::CoInitializeEx End " << hr << "\n";
 	if (FAILED(hr)) return hr;
 
 	dbg << "Run::XMLTest Begin\n";
+	//hr = XMLTest();
+	//hr = XMLTest2();
 	hr = XMLTest3();
 	dbg << "Run::XMLTest End " << hr << "\n";
 
 	dbg << "Run::CoFreeUnusedLibrariesEx Begin\n";
 	CoFreeUnusedLibrariesEx(NULL, NULL);
-	Sleep(1000);
+	Sleep(200);
 	dbg << "Run::CoFreeUnusedLibrariesEx End\n";
 
 	dbg << "Run::CoUninitialize Begin\n";
 	CoUninitialize();
-	Sleep(1000);
+	Sleep(200);
 	dbg << "Run::CoUninitialize End\n";
 
 	return hr;
@@ -187,9 +289,9 @@ HRESULT Run()
 
 int main()
 {
-	dbg << "Run Begin\n";
+	dbg << "main::Run Begin\n";
 	HRESULT hr = Run();
-	dbg << "Run End " << hr << "\n";
+	dbg << "main::Run End " << hr << "\n";
 
 	//dbg << "XMLTest XMLTest\n";
 	//HRESULT hr = XMLTest();
