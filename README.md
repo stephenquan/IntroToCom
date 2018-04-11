@@ -27,7 +27,7 @@ Common SUCCESS codes:
 
 | Name             | HRESULT    | Windows Description               | Explanation               |
 | ---------------- | ---------- | --------------------------------- | ------------------------- |
-| S_OK             | 0x00000000 |                                   |                           |
+| S_OK             | 0x00000000 |  The operation completed successfully. |                           |
 | DB_S_ENDOFROWSET | 0x00040EC6 |                                   | Last OLEDB record reached |
 | S_FALSE          | 0x00000001 | Incorrect function.               | Cannot open file          |
 
